@@ -1,24 +1,45 @@
-import img from './assets/pngegg.png'
+import pokeball from './assets/pokeball.png'
 
-function PokeCard(){
-
- return (
-   <>
-     <div className='cardContainer'>
-       <span>#1</span>
-       <div className='contentContainer'>
-         <img className='' src={img} alt='' />
-         <div className='infoContainer'>
-           <span className='pokeName'>Crabominable</span>
-           <div className='attackContainer'>
-             <span>Attack1</span>
-             <span>Attack2</span>
-           </div>
-         </div>
-       </div>
-     </div>
-   </>
- )
+function PokeCard({ pokeCard, loading }) {
+  // console.log(pokeCard);
+  return (
+    <>
+      {loading ? (
+        ''
+      ) : (
+        pokeCard.map((item) => (
+          <div className='cardContainer'>
+            <span>{item.id}</span>
+            <div className='cardContentContainer'>
+              <img
+                className=''
+                src={
+                  item.sprites.other.dream_world.front_default
+                    ? item.sprites.other.dream_world.front_default
+                    : item.sprites.other.home.front_default
+                    ? item.sprites.other.home.front_default
+                    : pokeball
+                }
+                alt='A picture of a pokemon'
+              />
+              <div className='cardInfoContainer'>
+                <span className='cardPokeName'>{item.name}</span>
+                <div className='cardAttackContainer'>
+                  {item.types.map((pokeType) => (
+                    <span
+                      className={pokeType.type.name}
+                    >
+                      {pokeType.type.name}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        ))
+      )}
+    </>
+  )
 }
 
 export default PokeCard
