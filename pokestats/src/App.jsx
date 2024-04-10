@@ -65,7 +65,7 @@ function App() {
           setUrl(res.data.next)
           setIsLoading(false)
         })
-      }, 1000)
+      }, 500)
     }
   }
 
