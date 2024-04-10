@@ -52,7 +52,7 @@ import axios from 'axios'
 import pokeball from './assets/pokeball.png'
 
 function App() {
-  const [url, setUrl] = useState('https://pokeapi.co/api/v2/pokemon')
+  const [url, setUrl] = useState('https://pokeapi.co/api/v2/pokemon?limit=500')
   const [pokeData, setPokeData] = useState([])
   const [isLoading, setIsLoading] = useState(false)
 
@@ -65,7 +65,7 @@ function App() {
           setUrl(res.data.next)
           setIsLoading(false)
         })
-      }, 500)
+      }, 1000)
     }
   }
 
