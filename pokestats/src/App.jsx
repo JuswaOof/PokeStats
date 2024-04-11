@@ -48,6 +48,7 @@
 
 import React, { useState, useEffect } from 'react'
 import PokeCard from './PokeCard.jsx'
+import Header from './Header.jsx'
 import axios from 'axios'
 import pokeball from './assets/pokeball.png'
 
@@ -65,7 +66,7 @@ function App() {
           setUrl(res.data.next)
           setIsLoading(false)
         })
-      }, 1000)
+      }, 2000)
     }
   }
 
@@ -97,10 +98,15 @@ function App() {
   }, [url])
 
   return (
-    <div className='appContent'>
-      <PokeCard pokeCard={pokeData} />
-      <div className='cardLoader'>{isLoading &&  <img src={pokeball}></img>}</div>
-    </div>
+    <>
+      <Header></Header>
+      <div className='appContent'>
+        <PokeCard pokeCard={pokeData} />
+        <div className='cardLoader'>
+          {isLoading && <img src={pokeball}></img>}
+        </div>
+      </div>
+    </>
   )
 }
 

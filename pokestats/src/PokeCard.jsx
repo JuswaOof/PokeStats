@@ -9,7 +9,7 @@ function PokeCard({ pokeCard, loading }) {
       ) : (
         pokeCard.map((item) => (
           <div className='cardContainer'>
-            <span>{item.id}</span>
+            <span className='pokeId'>{item.id}</span>
             <div className='cardContentContainer'>
               <img
                 className=''
