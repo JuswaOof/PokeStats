@@ -1,0 +1,165 @@
+/* start of card components */
+
+.cardContainer {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  height: 300px;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 20px;
+  /* filter: grayscale(0.4); */
+  background: rgba(255, 255, 255, 0.19);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10.4px);
+  -webkit-backdrop-filter: blur(10.4px);
+  outline: 1px outset rgb(255, 204, 0);
+}
+
+.cardContainer:hover {
+  filter: none;
+  animation: wiggle 0.3s ease-in-out;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  opacity: 1;
+}
+@keyframes wiggle {
+  0% {
+    transform: rotate(5deg);
+  }
+  50% {
+    transform: rotate(-3deg);
+    transform: scale(1.2);
+  }
+  100% {
+    transform: rotate(5deg);
+  }
+}
+.cardContainer:hover > .cardContentContainer img {
+  animation: float 2s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.cardImageContainer {
+  background-image: url(./assets/pngegg.png);
+  background-size: cover;
+  background-repeat: none;
+  background-position: center;
+}
+
+img {
+  margin-top: 20px;
+  display: flex;
+  height: 100px;
+  width: 100px;
+}
+
+.cardPokeName {
+  text-align: center;
+  font-size: 1.5rem;
+  width: 150px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: "Pixelify Sans", sans-serif;
+  color: white;
+  filter: invert();
+  /* text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.5), 1px -1px 0 rgba(0, 0, 0, 0.5),
+                -1px 1px 0 rgba(0, 0, 0, 0.5), 1px 1px 0 rgba(0, 0, 0, 0.5); */
+}
+
+.cardInfoContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+}
+
+.cardContentContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+
+.cardTypeContainer {
+  margin-top: 40px;
+}
+
+.cardTypeContainer span {
+  color: #fff;
+  text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2), 1px -1px 0 rgba(0, 0, 0, 0.2),
+    -1px 1px 0 rgba(0, 0, 0, 0.2), 1px 1px 0 rgba(0, 0, 0, 0.2); /* Outline color and size */
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px;
+  font-size: 1rem;
+}
+.cardTypeContainer .normal {
+  background-color: #a8a878;
+}
+.cardTypeContainer .fire {
+  background-color: #f08030;
+}
+.cardTypeContainer .water {
+  background-color: #6890f0;
+}
+.cardTypeContainer .electric {
+  background-color: #f8d030;
+}
+.cardTypeContainer .grass {
+  background-color: #78c850;
+}
+.cardTypeContainer .ice {
+  background-color: #98d8d8;
+}
+.cardTypeContainer .fighting {
+  background-color: #c03028;
+}
+.cardTypeContainer .poison {
+  background-color: #a040a0;
+}
+.cardTypeContainer .ground {
+  background-color: #e0c068;
+}
+.cardTypeContainer .flying {
+  background-color: #a890f0;
+}
+.cardTypeContainer .psychic {
+  background-color: #f85888;
+}
+.cardTypeContainer .bug {
+  background-color: #a8b820;
+}
+.cardTypeContainer .rock {
+  background-color: #b8a038;
+}
+.cardTypeContainer .ghost {
+  background-color: #705898;
+}
+.cardTypeContainer .dragon {
+  background-color: #7038f8;
+}
+.cardTypeContainer .dark {
+  background-color: #705848;
+}
+.cardTypeContainer .steel {
+  background-color: #b8b8d0;
+}
+.cardTypeContainer .fairy {
+  background-color: #f0b6bc;
+}
+
+
+/* end of card component */

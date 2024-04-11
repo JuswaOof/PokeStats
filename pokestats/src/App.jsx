@@ -1,60 +1,17 @@
-// import React, { useState, useEffect } from 'react'
-// import PokeCard from './PokeCard.jsx'
-// import axios from 'axios'
 
-// function App() {
-//   const [url, setUrl] = useState('https://pokeapi.co/api/v2/pokemon');
-//   const [nextUrl,setNextUrl] = useState();
-//   // ?limit=1302
-//   const [pokeData, setPokeData] = useState([]);
-//   const [isLoading, setIsLoading] = useState(false);
-
-//   const pokeGet = async () => {
-//     setIsLoading(true);
-//     const res = await axios.get(url);
-//     // console.log(res.data.results)
-//     getPokemon(res.data.results);
-//     setIsLoading(false);
-//     // console.log(pokeData);
-//   }
-
-//   const getPokemon = async (res) => {
-//     res.map(async (item) => {
-//       const result = await axios.get(item.url);
-//       // console.log(result.data)
-//       setPokeData(state=>{
-//         state=[...state,result.data]
-//         state.sort((a,b)=>a.id>b.id ? 1:-1)
-//         return state;
-//       })
-//     })
-//   }
-  
-//   useEffect(() => {
-//     pokeGet()
-//   }, [url])
-
-//   return (
-//     <>
-//       <div className='appContent'>
-//         <PokeCard pokeCard={pokeData} loading={isLoading}></PokeCard>
-//       </div>
-//     </>
-//   )
-// }
-
-// export default App
 
 
 import React, { useState, useEffect } from 'react'
-import PokeCard from './PokeCard.jsx'
-import Header from './Header.jsx'
+import PokeCard from './PokeCardComponent/PokeCard.jsx'
+import Header from './HeaderComponent/Header.jsx'
 import axios from 'axios'
 import pokeball from './assets/pokeball.png'
 
 function App() {
-  const [url, setUrl] = useState('https://pokeapi.co/api/v2/pokemon?limit=500')
+  const limit = 100;
+  const [url, setUrl] = useState(`https://pokeapi.co/api/v2/pokemon?limit=${limit}}`)
   const [pokeData, setPokeData] = useState([])
+  const [pokeDataAll, setPokeDataAll] = useState([])
   const [isLoading, setIsLoading] = useState(false)
 
   const loadMore = () => {
@@ -65,10 +22,19 @@ function App() {
           getPokemon(res.data.results)
           setUrl(res.data.next)
           setIsLoading(false)
+          let noLimit = res.data.count;
+          // Fetch all data without limit
+          axios
+            .get(`https://pokeapi.co/api/v2/pokemon?limit=${noLimit}`)
+            .then((res) => {
+              getPokemonAll(res.data.results)
+              // console.log(pokeDataAll);
+            })
         })
-      }, 2000)
+      }, 500)
     }
   }
+
 
   const getPokemon = (results) => {
     let promises = results.map((item) => axios.get(item.url))
@@ -78,9 +44,17 @@ function App() {
     })
   }
 
+  const getPokemonAll = (results) => {
+    let promises = results.map((item) => axios.get(item.url))
+    Promise.all(promises).then((responses) => {
+      let newData = responses.map((response) => response.data)
+      setPokeDataAll((prevData) => [...prevData, ...newData])
+    })
+  }
+
+
   useEffect(() => {
     loadMore()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   useEffect(() => {
@@ -97,9 +71,12 @@ function App() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [url])
 
+console.log(pokeDataAll)
+console.log(pokeData)
+
   return (
     <>
-      <Header></Header>
+      <Header/>
       <div className='appContent'>
         <PokeCard pokeCard={pokeData} />
         <div className='cardLoader'>

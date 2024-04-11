@@ -41,10 +41,3 @@
   color: #888;
 } */
 
-@font-face {
-  font-family: pokemonSolid;
-  src: url(../public/Pokemon\ Solid.ttf);
-}
-.pokemonSolid{
-  font-family: pokemonSolid;
-}

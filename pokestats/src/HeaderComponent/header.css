@@ -1,0 +1,90 @@
+/* start of header component */
+@font-face {
+  font-family: pokemonSolid;
+  src: url(/Pokemon\ Solid.ttf);
+}
+.pokemonSolid{
+  font-family: pokemonSolid;
+}
+
+.header {
+  height: 250px;
+  width: 90vw;
+  position: relative;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0 20px 20px 20px;
+  display: grid;
+  grid-template-areas:
+    "logo title attribution"
+    "searchBar searchBar searchBar";
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.19);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  /* filter: grayscale(0.6); */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10.4px);
+  /* border-left: 1px solid rgba(255, 255, 255, 0.55);
+  border-right: 1px solid rgba(255, 255, 255, 0.55);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.55); */
+  border-radius: 0 0 80px 80px;
+  margin-bottom: 100px;
+  outline: 2px ridge rgb(255, 204, 0);
+}
+
+
+.logo {
+  grid-area: logo;
+  text-align: center;
+}
+
+.title {
+  /* height: 4rem; */
+  color: #FFCC00;
+  text-shadow: -1px -1px 0 #215AAA, 1px -1px 0 #215AAA,
+                -1px 1px 0 #215AAA, 1px 1px 0 #215AAA;
+  grid-area: title;
+  font-size: 3.5rem;
+  text-align: center;
+  font-family: 'pokemonSolid';
+}
+
+.attribution {
+  grid-area: attribution;
+  text-align: center;
+  
+}
+
+.searchBar {
+  grid-area: searchBar;
+  text-align: center;
+}
+
+/* start of searchbar in header */
+
+.searchBar input[type="text"] {
+  padding: 5px;
+  font-size: 1.5rem;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.051);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10.4px);
+  -webkit-backdrop-filter: blur(10.4px);
+  border: none;
+  outline: 5px outset rgb(255, 204, 0);
+}
+.searchBar input[type="text"]::placeholder {
+  font-family: "Pixelify Sans", sans-serif;
+  color: white;
+  text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.5), 1px -1px 0 rgba(0, 0, 0, 0.5),
+                -1px 1px 0 rgba(0, 0, 0, 0.5), 1px 1px 0 rgba(0, 0, 0, 0.5);
+}
+.searchBar input[type="text"]:focus {
+  outline: 5px groove rgb(255, 204, 0);
+}
+/* end of searchbar in header */
+
+/* end of header component */
