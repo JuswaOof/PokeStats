@@ -1,6 +1,3 @@
-
-
-
 import React, { useState, useEffect } from 'react'
 import PokeCard from './PokeCardComponent/PokeCard.jsx'
 import Header from './HeaderComponent/Header.jsx'
@@ -8,11 +5,14 @@ import axios from 'axios'
 import pokeball from './assets/pokeball.png'
 
 function App() {
-  const limit = 100;
-  const [url, setUrl] = useState(`https://pokeapi.co/api/v2/pokemon?limit=${limit}}`)
+  const limit = 50
+  const [url, setUrl] = useState(
+    `https://pokeapi.co/api/v2/pokemon?limit=${limit}`
+  )
   const [pokeData, setPokeData] = useState([])
   const [pokeDataAll, setPokeDataAll] = useState([])
   const [isLoading, setIsLoading] = useState(false)
+  const [searchTerm, setSearchTerm] = useState('')
 
   const loadMore = () => {
     if (!isLoading && url) {
@@ -22,19 +22,35 @@ function App() {
           getPokemon(res.data.results)
           setUrl(res.data.next)
           setIsLoading(false)
-          let noLimit = res.data.count;
-          // Fetch all data without limit
-          axios
-            .get(`https://pokeapi.co/api/v2/pokemon?limit=${noLimit}`)
-            .then((res) => {
-              getPokemonAll(res.data.results)
-              // console.log(pokeDataAll);
-            })
+          // let noLimit = res.data.count
+          // axios
+          //   .get(`https://pokeapi.co/api/v2/pokemon?limit=${noLimit}`)
+          //   .then((res) => {
+          //     getPokemonAll(res.data.results)
+          //   })
         })
-      }, 500)
+      }, 1000)
     }
+    console.log('loadmore rendered')
   }
 
+  const fetchAllPokemon = () => {
+    if (!isLoading && url) {
+    setIsLoading(true)
+    setTimeout(() => {
+      axios.get(url).then((res) => {
+        setIsLoading(false)
+        let noLimit = res.data.count
+        axios
+          .get(`https://pokeapi.co/api/v2/pokemon?limit=${noLimit}`)
+          .then((res) => {
+            getPokemonAll(res.data.results)
+          })
+      })
+    }, 500)
+  }
+  console.log('fetchAllPokemon rendered')
+  }
 
   const getPokemon = (results) => {
     let promises = results.map((item) => axios.get(item.url))
@@ -52,9 +68,9 @@ function App() {
     })
   }
 
-
   useEffect(() => {
     loadMore()
+    fetchAllPokemon()
   }, [])
 
   useEffect(() => {
@@ -71,16 +87,18 @@ function App() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [url])
 
-console.log(pokeDataAll)
-console.log(pokeData)
+  const filteredPokeData = pokeDataAll.filter((pokemon) =>
+    pokemon.name.toLowerCase().includes(searchTerm)
+  )
+
 
   return (
     <>
-      <Header/>
+      <Header setSearchTerm={setSearchTerm} />
       <div className='appContent'>
-        <PokeCard pokeCard={pokeData} />
+        <PokeCard pokeCard={searchTerm ? filteredPokeData : pokeData} />
         <div className='cardLoader'>
-          {isLoading && <img src={pokeball}></img>}
+          {isLoading && <img src={pokeball} alt='loading' />}
         </div>
       </div>
     </>
@@ -88,3 +106,4 @@ console.log(pokeData)
 }
 
 export default App
+
