@@ -1,9 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import '../App.jsx'
 import '../HeaderComponent/header.css'
 
 function Header({ setSearchTerm }) {
   const [searchValue, setSearchValue] = useState('') 
+  const [isScrolled, setIsScrolled] = useState(false)
+
   
   let pokeTypeFilters = [
     'normal',
@@ -26,9 +28,8 @@ function Header({ setSearchTerm }) {
     'fairy',
   ]
   const [toggledButtons, setToggledButtons] = useState(
-    Array(pokeTypeFilters.length).fill(false)
+    Array(pokeTypeFilters.length).fill(true)
   )
-  console.log(toggledButtons)
   const handleSearchInputChange = (event) => {
     setSearchValue(event.target.value)
     setSearchTerm(event.target.value.toLowerCase())
@@ -40,13 +41,38 @@ function Header({ setSearchTerm }) {
     setToggledButtons(newToggledButtons)
   }
 
-  console.log()
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop
+
+      if (scrollTop >= 500 && !isScrolled) {
+        setIsScrolled(true)
+      } else if (scrollTop < 1) {
+        setIsScrolled(false)
+      }
+    }
+
+    // Set initial scroll state
+    handleScroll()
+    
+
+    window.addEventListener('scroll', handleScroll)
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
+  
   return (
-    <div className='header'>
-      <div className='logo'>Logo</div>
-      <div className='title'>PokéData</div>
-      <div className='attribution'>Attribution</div>
-      <div className='searchBar'>
+    <div className={`${isScrolled ? 'scrolledHeader' : 'header'}`}>
+      <div className={`logo ${isScrolled ? 'hidden' : ''}`}>Logo</div>
+      <div className={`title ${isScrolled ? 'hidden' : ''}`}>PokéData</div>
+      <div className={`attribution ${isScrolled ? 'hidden' : ''}`}>
+        Attribution
+      </div>
+      <div
+        className={` ${isScrolled ? 'scrolledSearchBar' : 'searchBar'}`}
+      >
         <input
           type='text'
           placeholder='Search pokemon...'
