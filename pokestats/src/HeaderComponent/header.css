@@ -3,12 +3,12 @@
   font-family: pokemonSolid;
   src: url(/Pokemon\ Solid.ttf);
 }
-.pokemonSolid{
+.pokemonSolid {
   font-family: pokemonSolid;
 }
 
 .header {
-  height: 250px;
+  height: 300px;
   width: 90vw;
   position: relative;
   top: 0;
@@ -17,8 +17,9 @@
   padding: 0 20px 20px 20px;
   display: grid;
   grid-template-areas:
-    "logo title attribution"
-    "searchBar searchBar searchBar";
+    'logo title attribution'
+    'searchBar searchBar searchBar'
+    'filterPokeType filterPokeType filterPokeType';
   grid-template-columns: auto 1fr auto;
   align-items: center;
   z-index: 10;
@@ -35,7 +36,6 @@
   outline: 2px ridge rgb(255, 204, 0);
 }
 
-
 .logo {
   grid-area: logo;
   text-align: center;
@@ -43,9 +43,9 @@
 
 .title {
   /* height: 4rem; */
-  color: #FFCC00;
-  text-shadow: -1px -1px 0 #215AAA, 1px -1px 0 #215AAA,
-                -1px 1px 0 #215AAA, 1px 1px 0 #215AAA;
+  color: #ffcc00;
+  text-shadow: -1px -1px 0 #215aaa, 1px -1px 0 #215aaa, -1px 1px 0 #215aaa,
+    1px 1px 0 #215aaa;
   grid-area: title;
   font-size: 3.5rem;
   text-align: center;
@@ -55,7 +55,6 @@
 .attribution {
   grid-area: attribution;
   text-align: center;
-  
 }
 
 .searchBar {
@@ -65,7 +64,7 @@
 
 /* start of searchbar in header */
 
-.searchBar input[type="text"] {
+.searchBar input[type='text'] {
   padding: 5px;
   font-size: 1.5rem;
   border-radius: 5px;
@@ -76,15 +75,96 @@
   border: none;
   outline: 5px outset rgb(255, 204, 0);
 }
-.searchBar input[type="text"]::placeholder {
-  font-family: "Pixelify Sans", sans-serif;
+.searchBar input[type='text']::placeholder {
+  font-family: 'Pixelify Sans', sans-serif;
   color: white;
   text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.5), 1px -1px 0 rgba(0, 0, 0, 0.5),
-                -1px 1px 0 rgba(0, 0, 0, 0.5), 1px 1px 0 rgba(0, 0, 0, 0.5);
+    -1px 1px 0 rgba(0, 0, 0, 0.5), 1px 1px 0 rgba(0, 0, 0, 0.5);
 }
-.searchBar input[type="text"]:focus {
+.searchBar input[type='text']:focus {
   outline: 5px groove rgb(255, 204, 0);
 }
 /* end of searchbar in header */
 
+.filterPokeType {
+  padding: 20px;
+  grid-area: filterPokeType;
+  text-align: center;
+}
+.filterPokeType button {
+  padding: 10px;
+  margin: 5px;
+  border-radius: 10px;
+  border: none;
+  /* background: rgba(255, 255, 255, 0.19); */
+  filter:contrast(0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10.4px);
+  -webkit-backdrop-filter: blur(10.4px);
+  outline: 1px outset rgb(255, 204, 0);
+  color: white;
+  text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000,
+    1px 1px 0 #000000;
+}
+.filterPokeType button:hover {
+  cursor: pointer;
+  filter: none;
+}
+.filterPokeType .toggled{
+  filter: none;
+}
+.normal {
+  background-color: #a8a878;
+}
+.fire {
+  background-color: #f08030;
+}
+.water {
+  background-color: #6890f0;
+}
+.electric {
+  background-color: #f8d030;
+}
+.grass {
+  background-color: #78c850;
+}
+.ice {
+  background-color: #98d8d8;
+}
+.fighting {
+  background-color: #c03028;
+}
+.poison {
+  background-color: #a040a0;
+}
+.ground {
+  background-color: #e0c068;
+}
+.flying {
+  background-color: #a890f0;
+}
+.psychic {
+  background-color: #f85888;
+}
+.bug {
+  background-color: #a8b820;
+}
+.rock {
+  background-color: #b8a038;
+}
+.ghost {
+  background-color: #705898;
+}
+.dragon {
+  background-color: #7038f8;
+}
+.dark {
+  background-color: #705848;
+}
+.steel {
+  background-color: #b8b8d0;
+}
+.fairy {
+  background-color: #f0b6bc;
+}
 /* end of header component */

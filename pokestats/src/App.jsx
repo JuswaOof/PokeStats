@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import PokeCard from './PokeCardComponent/PokeCard.jsx'
 import Header from './HeaderComponent/Header.jsx'
+import PokeInfo from './PokeInfoComponent/PokeInfo.jsx'
 import axios from 'axios'
 import pokeball from './assets/pokeball.png'
 
@@ -45,7 +46,7 @@ function App() {
           .get(`https://pokeapi.co/api/v2/pokemon?limit=${noLimit}`)
           .then((res) => {
             getPokemonAll(res.data.results)
-          })
+          })  
       })
     }, 500)
   }
@@ -65,6 +66,7 @@ function App() {
     Promise.all(promises).then((responses) => {
       let newData = responses.map((response) => response.data)
       setPokeDataAll((prevData) => [...prevData, ...newData])
+      console.log(pokeData)
     })
   }
 
@@ -86,9 +88,11 @@ function App() {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [url])
+  
 
-  const filteredPokeData = pokeDataAll.filter((pokemon) =>
-    pokemon.name.toLowerCase().includes(searchTerm)
+  const filteredPokeData = pokeDataAll.filter(
+    (pokemon) =>
+      pokemon.name.toLowerCase().includes(searchTerm)
   )
 
 
@@ -96,7 +100,7 @@ function App() {
     <>
       <Header setSearchTerm={setSearchTerm} />
       <div className='appContent'>
-        <PokeCard pokeCard={searchTerm ? filteredPokeData : pokeData} />
+        <PokeCard pokeCard={searchTerm ? filteredPokeData : pokeData}/>
         <div className='cardLoader'>
           {isLoading && <img src={pokeball} alt='loading' />}
         </div>
