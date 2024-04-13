@@ -1,5 +1,7 @@
 /* start of card components */
-
+*{
+  font-family: Arial, Helvetica, sans-serif;
+}
 .cardContainer {
   display: flex;
   flex-direction: column;

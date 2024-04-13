@@ -1,33 +1,25 @@
-import React, {useState, useEffect} from "react";
-import axios from 'axios';
+import '../PokeInfoComponent/pokeInfo.css'
 
-
-function PokeInfo(){
-
- // const [url, setUrl] = useState('https://pokeapi.co/api/v2/pokemon')
- // const [isLoading,setIsLoading] = useState(true)
-
- // const pokeData = async() => {
- //  setIsLoading(true);
- //  const res = await axios.get(url);
- //  // console.log(res.data.results)
- //  getPokemon(res.data.results);
- // }
-
- // const getPokemon = async(res) => {
- //  res.map( async (item) => {
- //   const result = await axios.get(item.url);
- //   console.log(result.data)
- //  })
- // }
- // useEffect(()=>{
- //  pokeData();
- // },[url])
- return(
-  <>
-  
-  </>
- )
+function PokeInfo({ pokeInfo, onClose }) {
+  return (
+    <div className='pokeInfoContainer'>
+      <div className='pokeInfo'>
+        <span className='close' onClick={onClose}>
+          &times;
+        </span>
+        <h2>{pokeInfo.name}</h2>
+        <img
+          className=''
+          src={
+            pokeInfo.sprites.other.dream_world.front_default
+              ? pokeInfo.sprites.other.dream_world.front_default
+              : pokeInfo.sprites.other.home.front_default
+          }
+          alt={`picture of ${pokeInfo.name}`}
+        />
+      </div>
+    </div>
+  )
 }
 
 export default PokeInfo

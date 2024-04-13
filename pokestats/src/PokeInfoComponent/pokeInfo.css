@@ -1,0 +1,27 @@
+
+.pokeInfoContainer{
+ position: fixed;
+ height: 95vh;
+ width: 95vw;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%,-50%);
+ background: rgba(255, 255, 255, 0.19);
+ box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+ border-radius: 50px;
+ backdrop-filter: blur(10.4px);
+ -webkit-backdrop-filter: blur(10.4px);
+ outline: 1px outset rgb(255, 204, 0);
+ z-index: 1000;
+}
+
+.close{
+ position:absolute;
+ top: 15px;
+ right: 20px;
+ font-size: 2rem;
+ color: rgb(255, 204, 0);
+}
+.close:hover{
+cursor: pointer;
+}

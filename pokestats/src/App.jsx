@@ -14,6 +14,7 @@ function App() {
   const [pokeDataAll, setPokeDataAll] = useState([])
   const [isLoading, setIsLoading] = useState(false)
   const [searchTerm, setSearchTerm] = useState('')
+  const [pokeInfo, setPokeInfo] = useState(null)
 
   const loadMore = () => {
     if (!isLoading && url) {
@@ -95,12 +96,23 @@ function App() {
       pokemon.name.toLowerCase().includes(searchTerm)
   )
 
+  const openPokeInfo = (pokeInfo) => {
+    setPokeInfo(pokeInfo)
+  }
+
+  const closePokeInfo = () => {
+    setPokeInfo(null)
+  }
 
   return (
     <>
+      {pokeInfo && <PokeInfo pokeInfo={pokeInfo} onClose={closePokeInfo} />}
       <Header setSearchTerm={setSearchTerm} />
       <div className='appContent'>
-        <PokeCard pokeCard={searchTerm ? filteredPokeData : pokeData}/>
+        <PokeCard
+          pokeCard={searchTerm ? filteredPokeData : pokeData}
+          openPokeInfo={openPokeInfo}
+        />
         <div className='cardLoader'>
           {isLoading && <img src={pokeball} alt='loading' />}
         </div>

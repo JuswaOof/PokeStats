@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import '../App.jsx'
 import '../HeaderComponent/header.css'
+import dribbbleLogo from '../assets/dribbble.png'
+import githubLogo from '../assets/github.png'
 
 function Header({ setSearchTerm }) {
   const [searchValue, setSearchValue] = useState('') 
@@ -65,14 +67,16 @@ function Header({ setSearchTerm }) {
   
   return (
     <div className={`${isScrolled ? 'scrolledHeader' : 'header'}`}>
-      <div className={`logo ${isScrolled ? 'hidden' : ''}`}>Logo</div>
-      <div className={`title ${isScrolled ? 'hidden' : ''}`}>PokéData</div>
-      <div className={`attribution ${isScrolled ? 'hidden' : ''}`}>
-        Attribution
+      <div className={`logo ${isScrolled ? 'hidden' : ''}`}>
+        <img className='logoSocial' src={githubLogo} alt='' />
+        <img className='logoSocial' src={dribbbleLogo} alt='' />
+        <span>Oof</span>
       </div>
-      <div
-        className={` ${isScrolled ? 'scrolledSearchBar' : 'searchBar'}`}
-      >
+      <div className={`title ${isScrolled ? 'hidden' : ''}`}>PokéData</div>
+      <div className={`credits ${isScrolled ? 'hidden' : ''}`}>
+        <span>Credits</span>
+      </div>
+      <div className={` ${isScrolled ? 'scrolledSearchBar' : 'searchBar'}`}>
         <input
           type='text'
           placeholder='Search pokemon...'

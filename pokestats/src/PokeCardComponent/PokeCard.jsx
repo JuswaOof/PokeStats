@@ -1,14 +1,18 @@
 import pokeball from '../assets/pokeball.png'
 import '../PokeCardComponent/pokeCard.css'
 
-function PokeCard({ pokeCard, loading }) {
+function PokeCard({ pokeCard, loading, openPokeInfo }) {
   // console.log(pokeCard);
   return (
     <>
       {loading
         ? ''
         : pokeCard.map((item) => (
-            <div className='cardContainer'>
+            <div
+              onClick={() => openPokeInfo(item)}
+              className='cardContainer'
+              key={item.id}
+            >
               <span className='pokeId'>{item.id}</span>
               <div className='cardContentContainer'>
                 <img
@@ -25,8 +29,8 @@ function PokeCard({ pokeCard, loading }) {
                 <div className='cardInfoContainer'>
                   <span className='cardPokeName'>{item.name}</span>
                   <div className='cardTypeContainer'>
-                    {item.types.map((pokeType) => (
-                      <span className={pokeType.type.name}>
+                    {item.types.map((pokeType, index) => (
+                      <span className={pokeType.type.name} key={index}>
                         {pokeType.type.name}
                       </span>
                     ))}
