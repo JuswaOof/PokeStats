@@ -68,13 +68,25 @@ function Header({ setSearchTerm }) {
   return (
     <div className={`${isScrolled ? 'scrolledHeader' : 'header'}`}>
       <div className={`logo ${isScrolled ? 'hidden' : ''}`}>
-        <img className='logoSocial' src={githubLogo} alt='' />
-        <img className='logoSocial' src={dribbbleLogo} alt='' />
-        <span>Oof</span>
+        <a href='https://github.com/JuswaOof' target='_blank' rel='noopener'>
+          <img className='logoSocial' src={githubLogo} alt='' />
+        </a>
+        <a href='https://dribbble.com/Juswa_oof' target='_blank' rel='noopener'>
+          <img className='logoSocial' src={dribbbleLogo} alt='' />
+        </a>
+        <a
+          href='https://juswaoof.github.io/Portfolio-2022/'
+          target='_blank'
+          rel='noopener'
+        >
+          <span>Oof</span>
+        </a>
       </div>
       <div className={`title ${isScrolled ? 'hidden' : ''}`}>PokéData</div>
       <div className={`credits ${isScrolled ? 'hidden' : ''}`}>
-        <span>Credits</span>
+        <a href=''>
+          <span>Credits</span>
+        </a>
       </div>
       <div className={` ${isScrolled ? 'scrolledSearchBar' : 'searchBar'}`}>
         <input

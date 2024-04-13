@@ -6,7 +6,9 @@
 .pokemonSolid {
   font-family: pokemonSolid;
 }
-
+a {
+  text-decoration: none;
+}
 
 .header {
   height: 300px;

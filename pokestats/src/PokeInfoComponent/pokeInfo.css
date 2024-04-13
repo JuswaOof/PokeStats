@@ -1,3 +1,55 @@
+.pixelFont{
+ font-family: "Pixelify Sans", sans-serif;
+}
+.arialFont{
+ font-family: Arial, Helvetica, sans-serif;
+}
+.tekoFont{
+ font-family: "Teko", sans-serif;
+}
+
+.barContainerLeft {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 20px; /* Set the height of the bar */
+  margin-bottom: 5px; /* Add some spacing between bars */
+  
+}
+.bar {
+    height: 20px; /* Height of the bar */
+    background-color: red; /* Color of the bar */
+    align-items: right;
+    text-align: right;
+    align-self: right;
+}
+
+.flex{
+display: flex;
+}
+
+.flexColumn{
+ flex-direction: column;
+}
+
+.whiteText{
+ color: white;
+}
+
+.spanPad{
+ padding: 10px;
+}
+
+.neuText{
+ color: #2c2c2d;
+ text-shadow: -3px -3px 5px rgba(255,255,255,0.4),
+   3px 3px 5px rgba(0,0,0,0.08);
+}
+
+/* .textOutline{
+  text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 #AA8800,
+    1px 1px 0 #AA8800;
+} */
 
 .pokeInfoContainer{
  position: fixed;
@@ -22,6 +74,64 @@
  font-size: 2rem;
  color: rgb(255, 204, 0);
 }
+
 .close:hover{
 cursor: pointer;
+}
+
+.pokeInfo{
+ display: grid;
+  grid-template-areas:
+   "leftInfo midInfo rightInfo";
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  padding: 100px;
+  padding-top: 150px;
+}
+
+.leftInfo{
+grid-area: leftInfo;
+text-align: right;
+font-size: 2rem;
+-moz-transform: scale(1.1) skew(3deg, -25deg);
+-webkit-transform: scale(1.1) skew(3deg, -25deg);
+-o-transform: scale(1.1) skew(3deg, -25deg);
+-ms-transform: scale(1.1) skew(3deg, -25deg);
+transform: scale(1.1) skew(3deg, -25deg);
+}
+
+.midInfo{
+grid-area: midInfo;
+justify-content: center;
+align-items: center;
+ font-size: 3rem;
+}
+
+.midInfo img{
+ height: 500px;
+ width: 500px;
+ animation: float 3s ease-in-out infinite;
+ padding-bottom: 100px;
+}
+
+.rightInfo{
+grid-area: rightInfo;
+text-align: left;
+font-size: 2rem;
+-moz-transform: scale(1.1) skew(-3deg, 25deg);
+-webkit-transform: scale(1.1) skew(-3deg, 25deg);
+-o-transform: scale(1.1) skew(-3deg, 25deg);
+-ms-transform: scale(1.1) skew(-3deg, 25deg);
+transform: scale(1.1) skew(-3deg, 25deg);
+}
+
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
