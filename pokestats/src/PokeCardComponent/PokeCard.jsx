@@ -1,5 +1,6 @@
 import pokeball from '../assets/pokeball.png'
 import '../PokeCardComponent/pokeCard.css'
+import React from 'react'
 
 function PokeCard({ pokeCard, loading, openPokeInfo }) {
   // console.log(pokeCard);

@@ -1,11 +1,11 @@
-.pixelFont{
- font-family: "Pixelify Sans", sans-serif;
+.pixelFont {
+  font-family: 'Pixelify Sans', sans-serif;
 }
-.arialFont{
- font-family: Arial, Helvetica, sans-serif;
+.arialFont {
+  font-family: Arial, Helvetica, sans-serif;
 }
-.tekoFont{
- font-family: "Teko", sans-serif;
+.tekoFont {
+  font-family: 'Teko', sans-serif;
 }
 
 .barContainerLeft {
@@ -14,117 +14,124 @@
   align-items: center;
   height: 20px; /* Set the height of the bar */
   margin-bottom: 5px; /* Add some spacing between bars */
-  
 }
 .bar {
-    height: 20px; /* Height of the bar */
-    background-color: red; /* Color of the bar */
-    align-items: right;
-    text-align: right;
-    align-self: right;
+  height: 30px;
+  align-items: right;
+  text-align: right;
+  align-self: right;
+  border-radius: 10px;
+  transition: 0.8s ease-in-out; /* Add a transition effect for width changes */
 }
 
-.flex{
-display: flex;
+.hpBar {
+  background-color: #60e878;
+}
+.atkBar {
+  background-color: #f07070;
 }
 
-.flexColumn{
- flex-direction: column;
+.defBar {
+  background-color: #efe459;
+}
+.spAtkBar {
+  background-color: #e860e6;
+}
+.spDefBar {
+  background-color: #f2a255;
+}
+.spdBar {
+  background-color: #60c4e8;
 }
 
-.whiteText{
- color: white;
+.flex {
+  display: flex;
 }
 
-.spanPad{
- padding: 10px;
+.flexColumn {
+  flex-direction: column;
 }
 
-.neuText{
- color: #2c2c2d;
- text-shadow: -3px -3px 5px rgba(255,255,255,0.4),
-   3px 3px 5px rgba(0,0,0,0.08);
+.whiteText {
+  color: black;
 }
 
-/* .textOutline{
-  text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 #AA8800,
-    1px 1px 0 #AA8800;
-} */
-
-.pokeInfoContainer{
- position: fixed;
- height: 95vh;
- width: 95vw;
- top: 50%;
- left: 50%;
- transform: translate(-50%,-50%);
- background: rgba(255, 255, 255, 0.19);
- box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
- border-radius: 50px;
- backdrop-filter: blur(10.4px);
- -webkit-backdrop-filter: blur(10.4px);
- outline: 1px outset rgb(255, 204, 0);
- z-index: 1000;
+.spanPad {
+  padding: 10px;
 }
 
-.close{
- position:absolute;
- top: 15px;
- right: 20px;
- font-size: 2rem;
- color: rgb(255, 204, 0);
+
+.pokeInfoContainer {
+  position: fixed;
+  height: 95vh;
+  width: 95vw;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.19);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 50px;
+  backdrop-filter: blur(10.4px);
+  -webkit-backdrop-filter: blur(10.4px);
+  outline: 1px outset rgb(255, 204, 0);
+  z-index: 1000;
 }
 
-.close:hover{
-cursor: pointer;
+.close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 2rem;
+  color: rgb(255, 204, 0);
 }
 
-.pokeInfo{
- display: grid;
-  grid-template-areas:
-   "leftInfo midInfo rightInfo";
+.close:hover {
+  cursor: pointer;
+}
+
+.pokeInfo {
+  display: grid;
+  grid-template-areas: 'leftInfo midInfo rightInfo';
   grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
-  padding: 100px;
-  padding-top: 150px;
+  padding: 50px;
 }
 
-.leftInfo{
-grid-area: leftInfo;
-text-align: right;
-font-size: 2rem;
--moz-transform: scale(1.1) skew(3deg, -25deg);
--webkit-transform: scale(1.1) skew(3deg, -25deg);
--o-transform: scale(1.1) skew(3deg, -25deg);
--ms-transform: scale(1.1) skew(3deg, -25deg);
-transform: scale(1.1) skew(3deg, -25deg);
+.leftInfo {
+  grid-area: leftInfo;
+  text-align: right;
+  font-size: 2rem;
+  -moz-transform: scale(1.1) skew(3deg, -25deg);
+  -webkit-transform: scale(1.1) skew(3deg, -25deg);
+  -o-transform: scale(1.1) skew(3deg, -25deg);
+  -ms-transform: scale(1.1) skew(3deg, -25deg);
+  transform: scale(1.1) skew(3deg, -25deg);
 }
 
-.midInfo{
-grid-area: midInfo;
-justify-content: center;
-align-items: center;
- font-size: 3rem;
+.midInfo {
+  grid-area: midInfo;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
 }
 
-.midInfo img{
- height: 500px;
- width: 500px;
- animation: float 3s ease-in-out infinite;
- padding-bottom: 100px;
+.midInfo img {
+  height: 500px;
+  width: 500px;
+  animation: float 3s ease-in-out infinite;
+  padding: 0 50px 50px 50px;
 }
 
-.rightInfo{
-grid-area: rightInfo;
-text-align: left;
-font-size: 2rem;
--moz-transform: scale(1.1) skew(-3deg, 25deg);
--webkit-transform: scale(1.1) skew(-3deg, 25deg);
--o-transform: scale(1.1) skew(-3deg, 25deg);
--ms-transform: scale(1.1) skew(-3deg, 25deg);
-transform: scale(1.1) skew(-3deg, 25deg);
+.rightInfo {
+  grid-area: rightInfo;
+  text-align: left;
+  font-size: 2rem;
+  -moz-transform: scale(1.1) skew(-3deg, 25deg);
+  -webkit-transform: scale(1.1) skew(-3deg, 25deg);
+  -o-transform: scale(1.1) skew(-3deg, 25deg);
+  -ms-transform: scale(1.1) skew(-3deg, 25deg);
+  transform: scale(1.1) skew(-3deg, 25deg);
 }
-
 
 @keyframes float {
   0%,

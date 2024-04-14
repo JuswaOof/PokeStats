@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import PokeCard from './PokeCardComponent/PokeCard.jsx'
 import Header from './HeaderComponent/Header.jsx'
 import PokeInfo from './PokeInfoComponent/PokeInfo.jsx'
+import MusicPlayer from './MusicPlayerComponent/MusicPlayerComponent.jsx'
 import axios from 'axios'
 import pokeball from './assets/pokeball.png'
 
@@ -15,6 +16,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(false)
   const [searchTerm, setSearchTerm] = useState('')
   const [pokeInfo, setPokeInfo] = useState(null)
+  const [typeFilters, setTypeFilters] = useState([])
 
   const loadMore = () => {
     if (!isLoading && url) {
@@ -24,34 +26,26 @@ function App() {
           getPokemon(res.data.results)
           setUrl(res.data.next)
           setIsLoading(false)
-          // let noLimit = res.data.count
-          // axios
-          //   .get(`https://pokeapi.co/api/v2/pokemon?limit=${noLimit}`)
-          //   .then((res) => {
-          //     getPokemonAll(res.data.results)
-          //   })
         })
       }, 1000)
     }
-    console.log('loadmore rendered')
   }
 
   const fetchAllPokemon = () => {
     if (!isLoading && url) {
-    setIsLoading(true)
-    setTimeout(() => {
-      axios.get(url).then((res) => {
-        setIsLoading(false)
-        let noLimit = res.data.count
-        axios
-          .get(`https://pokeapi.co/api/v2/pokemon?limit=${noLimit}`)
-          .then((res) => {
-            getPokemonAll(res.data.results)
-          })  
-      })
-    }, 500)
-  }
-  console.log('fetchAllPokemon rendered')
+      setIsLoading(true)
+      setTimeout(() => {
+        axios.get(url).then((res) => {
+          setIsLoading(false)
+          let noLimit = res.data.count
+          axios
+            .get(`https://pokeapi.co/api/v2/pokemon?limit=${noLimit}`)
+            .then((res) => {
+              getPokemonAll(res.data.results)
+            })
+        })
+      }, 500)
+    }
   }
 
   const getPokemon = (results) => {
@@ -67,7 +61,6 @@ function App() {
     Promise.all(promises).then((responses) => {
       let newData = responses.map((response) => response.data)
       setPokeDataAll((prevData) => [...prevData, ...newData])
-      console.log(pokeData)
     })
   }
 
@@ -89,12 +82,18 @@ function App() {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [url])
-  
 
-  const filteredPokeData = pokeDataAll.filter(
-    (pokemon) =>
-      pokemon.name.toLowerCase().includes(searchTerm)
-  )
+const filteredPokeData = pokeDataAll.filter((pokemon) => {
+  const hasSelectedTypes =
+    typeFilters.length === 0 ||
+    typeFilters.every((selectedType) =>
+      pokemon.types.some((type) => type.type.name === selectedType)
+    )
+  const matchesSearch = searchTerm
+    ? pokemon.name.toLowerCase().includes(searchTerm)
+    : true
+  return hasSelectedTypes && matchesSearch
+})
 
   const openPokeInfo = (pokeInfo) => {
     setPokeInfo(pokeInfo)
@@ -106,13 +105,11 @@ function App() {
 
   return (
     <>
+      <MusicPlayer></MusicPlayer>
       {pokeInfo && <PokeInfo pokeInfo={pokeInfo} onClose={closePokeInfo} />}
-      <Header setSearchTerm={setSearchTerm} />
+      <Header setSearchTerm={setSearchTerm} setTypeFilters={setTypeFilters} />
       <div className='appContent'>
-        <PokeCard
-          pokeCard={searchTerm ? filteredPokeData : pokeData}
-          openPokeInfo={openPokeInfo}
-        />
+        <PokeCard pokeCard={filteredPokeData} openPokeInfo={openPokeInfo} />
         <div className='cardLoader'>
           {isLoading && <img src={pokeball} alt='loading' />}
         </div>
@@ -122,4 +119,3 @@ function App() {
 }
 
 export default App
-

@@ -11,12 +11,6 @@ body {
   background-attachment: fixed;
   filter: blur(5);
 }
-/* start of background music */
-
-.youtube-player {
-  display: none;
-}
-/* end ofbackground music */
 
 /* start of app styles */
 .appContent {
@@ -33,9 +27,6 @@ body {
 }
 
 /* end of app styles */
-
-
-
 
 
 .cardLoader img {

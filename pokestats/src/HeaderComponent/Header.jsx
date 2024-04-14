@@ -4,12 +4,10 @@ import '../HeaderComponent/header.css'
 import dribbbleLogo from '../assets/dribbble.png'
 import githubLogo from '../assets/github.png'
 
-function Header({ setSearchTerm }) {
-  const [searchValue, setSearchValue] = useState('') 
+function Header({ setSearchTerm, setTypeFilters }) {
+  const [searchValue, setSearchValue] = useState('')
   const [isScrolled, setIsScrolled] = useState(false)
-
-  
-  let pokeTypeFilters = [
+  const [pokeTypeFilters, setPokeTypeFilters] = useState([
     'normal',
     'fighting',
     'flying',
@@ -28,20 +26,27 @@ function Header({ setSearchTerm }) {
     'dragon',
     'dark',
     'fairy',
-  ]
-  const [toggledButtons, setToggledButtons] = useState(
-    Array(pokeTypeFilters.length).fill(true)
-  )
+  ])
+  const [toggledButtons, setToggledButtons] = useState([])
+
   const handleSearchInputChange = (event) => {
     setSearchValue(event.target.value)
     setSearchTerm(event.target.value.toLowerCase())
   }
 
-  const handleToggle = (index) => {
-    const newToggledButtons = [...toggledButtons]
-    newToggledButtons[index] = !newToggledButtons[index]
+  const handleToggle = (item) => {
+    let newToggledButtons
+    if (!toggledButtons.includes(item)) {
+      newToggledButtons = [...toggledButtons, item]
+    } else {
+      newToggledButtons = toggledButtons.filter((type) => type !== item)
+    }
     setToggledButtons(newToggledButtons)
   }
+
+  useEffect(() => {
+    setTypeFilters(toggledButtons)
+  }, [toggledButtons, setTypeFilters])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -56,7 +61,6 @@ function Header({ setSearchTerm }) {
 
     // Set initial scroll state
     handleScroll()
-    
 
     window.addEventListener('scroll', handleScroll)
 
@@ -64,7 +68,7 @@ function Header({ setSearchTerm }) {
       window.removeEventListener('scroll', handleScroll)
     }
   }, [])
-  
+
   return (
     <div className={`${isScrolled ? 'scrolledHeader' : 'header'}`}>
       <div className={`logo ${isScrolled ? 'hidden' : ''}`}>
@@ -84,7 +88,7 @@ function Header({ setSearchTerm }) {
       </div>
       <div className={`title ${isScrolled ? 'hidden' : ''}`}>PokéData</div>
       <div className={`credits ${isScrolled ? 'hidden' : ''}`}>
-        <a href=''>
+        <a href='#'>
           <span>Credits</span>
         </a>
       </div>
@@ -99,9 +103,11 @@ function Header({ setSearchTerm }) {
       <div className='filterPokeType'>
         {pokeTypeFilters.map((item, index) => (
           <button
-            className={`${item} ${toggledButtons[index] ? 'toggled' : ''}`}
+            className={`${item} ${
+              toggledButtons.includes(item) ? 'toggled' : ''
+            }`}
             key={index}
-            onClick={() => handleToggle(index)}
+            onClick={() => handleToggle(item)}
           >
             {item}
           </button>
