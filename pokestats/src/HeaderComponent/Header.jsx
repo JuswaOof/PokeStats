@@ -4,10 +4,11 @@ import '../HeaderComponent/header.css'
 import dribbbleLogo from '../assets/dribbble.png'
 import githubLogo from '../assets/github.png'
 
-function Header({ setSearchTerm, setTypeFilters }) {
+function Header({ setSearchTerm, setTypeFilters}) {
   const [searchValue, setSearchValue] = useState('')
   const [isScrolled, setIsScrolled] = useState(false)
-  const [pokeTypeFilters, setPokeTypeFilters] = useState([
+
+  let pokeTypeFilters = [
     'normal',
     'fighting',
     'flying',
@@ -26,7 +27,7 @@ function Header({ setSearchTerm, setTypeFilters }) {
     'dragon',
     'dark',
     'fairy',
-  ])
+  ]
   const [toggledButtons, setToggledButtons] = useState([])
 
   const handleSearchInputChange = (event) => {
@@ -35,18 +36,22 @@ function Header({ setSearchTerm, setTypeFilters }) {
   }
 
   const handleToggle = (item) => {
+    const index = toggledButtons.indexOf(item)
     let newToggledButtons
-    if (!toggledButtons.includes(item)) {
+    if (index === -1) {
+      // If the item is not in the array, add it
       newToggledButtons = [...toggledButtons, item]
     } else {
-      newToggledButtons = toggledButtons.filter((type) => type !== item)
+      // If the item is already in the array, remove it
+      newToggledButtons = toggledButtons.filter((_, i) => i !== index)
     }
     setToggledButtons(newToggledButtons)
-  }
 
-  useEffect(() => {
-    setTypeFilters(toggledButtons)
-  }, [toggledButtons, setTypeFilters])
+    // Set the type filters
+    setTypeFilters(newToggledButtons)
+
+    console.log(newToggledButtons)
+  }
 
   useEffect(() => {
     const handleScroll = () => {
