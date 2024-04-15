@@ -14,6 +14,7 @@ function App() {
   const [pokeData, setPokeData] = useState([])
   const [pokeDataAll, setPokeDataAll] = useState([])
   const [isLoading, setIsLoading] = useState(false)
+  const [isWebsiteLoaded, setIsWebsiteLoaded] = useState(false)
   const [searchTerm, setSearchTerm] = useState('')
   const [pokeInfo, setPokeInfo] = useState(null)
   const [typeFilters, setTypeFilters] = useState([])
@@ -70,10 +71,23 @@ function App() {
   }, [])
 
   useEffect(() => {
+    window.addEventListener('load', () => {
+      setIsWebsiteLoaded(true)
+    })
+
+    return () => {
+      window.removeEventListener('load', () => {
+        setIsWebsiteLoaded(true)
+      })
+    }
+  }, [])
+
+  useEffect(() => {
     const handleScroll = () => {
       if (
         window.innerHeight + document.documentElement.scrollTop ===
-        document.documentElement.offsetHeight
+          document.documentElement.offsetHeight &&
+        isWebsiteLoaded
       ) {
         loadMore()
       }
@@ -95,7 +109,7 @@ const filteredPokeData = pokeDataAll.filter((pokemon) => {
   return hasAllTypes && matchesSearch
 })
 
-console.log(typeFilters)
+// console.log(typeFilters)
 
   const openPokeInfo = (pokeInfo) => {
     setPokeInfo(pokeInfo)
@@ -106,9 +120,10 @@ console.log(typeFilters)
   }
 
 
-  useEffect(() => {
-    console.log('filteredPokeData:', filteredPokeData)
-  }, [filteredPokeData])
+  // useEffect(() => {
+  //   console.log('filteredPokeData:', filteredPokeData)
+  // }, [filteredPokeData])
+  
   return (
     <>
       <MusicPlayer></MusicPlayer>

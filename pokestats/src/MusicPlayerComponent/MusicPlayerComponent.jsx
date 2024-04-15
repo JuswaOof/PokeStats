@@ -4,7 +4,7 @@ import '../MusicPlayerComponent/musicPlayer.css'
 
 const MusicPlayer = () => {
   const playerRef = useRef(null)
-  const [playing, setPlaying] = useState(true)
+  const [playing, setPlaying] = useState(false)
 
   const handleTogglePlay = () => {
     setPlaying((prevPlaying) => !prevPlaying)
