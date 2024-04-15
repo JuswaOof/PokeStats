@@ -3,6 +3,7 @@ import PokeCard from './PokeCardComponent/PokeCard.jsx'
 import Header from './HeaderComponent/Header.jsx'
 import PokeInfo from './PokeInfoComponent/PokeInfo.jsx'
 import MusicPlayer from './MusicPlayerComponent/MusicPlayerComponent.jsx'
+import ScrollToTop from './ScrollToTopComponent/ScrollToTop.jsx'
 import axios from 'axios'
 import pokeball from './assets/pokeball.png'
 
@@ -126,7 +127,6 @@ const filteredPokeData = pokeDataAll.filter((pokemon) => {
   
   return (
     <>
-      <MusicPlayer></MusicPlayer>
       {pokeInfo && <PokeInfo pokeInfo={pokeInfo} onClose={closePokeInfo} />}
       <Header setSearchTerm={setSearchTerm} setTypeFilters={setTypeFilters} />
       <div className='appContent'>
@@ -140,6 +140,8 @@ const filteredPokeData = pokeDataAll.filter((pokemon) => {
           {isLoading && <img src={pokeball} alt='loading' />}
         </div>
       </div>
+      <MusicPlayer></MusicPlayer>
+      <ScrollToTop></ScrollToTop>
     </>
   )
 }

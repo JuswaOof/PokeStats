@@ -53,6 +53,15 @@
   }
 }
 
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .cardImageContainer {
   background-image: url(./assets/pngegg.png);
   background-size: cover;
@@ -163,5 +172,7 @@ img {
   background-color: #f0b6bc;
 }
 
-
+.cardImgLoader{
+ animation: spin 2s linear infinite;
+}
 /* end of card component */
