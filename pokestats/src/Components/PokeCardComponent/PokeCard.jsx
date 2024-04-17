@@ -1,5 +1,5 @@
-import pokeball from '../assets/pokeball.png'
-import '../PokeCardComponent/pokeCard.css'
+import pokeball from '../../assets/pokeball.png'
+import './pokeCard.css'
 import React,{useState} from 'react'
 
 function PokeCard({ pokeCard, openPokeInfo }) {

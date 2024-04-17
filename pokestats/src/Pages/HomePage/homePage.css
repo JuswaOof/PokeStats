@@ -23,7 +23,7 @@ body {
   margin: 0 auto;
   max-width: 80vw;
   padding: 0 20px;
-  position: relative;
+  position: relative; /* Add this line */
 }
 
 /* end of app styles */

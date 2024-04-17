@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import '../App.jsx'
-import '../HeaderComponent/header.css'
-import dribbbleLogo from '../assets/dribbble.png'
-import githubLogo from '../assets/github.png'
+import '../../App.jsx'
+import './header.css'
+import dribbbleLogo from '../../assets/dribbble.png'
+import githubLogo from '../../assets/github.png'
 
 function Header({ setSearchTerm, setTypeFilters}) {
   const [searchValue, setSearchValue] = useState('')
@@ -91,7 +91,7 @@ function Header({ setSearchTerm, setTypeFilters}) {
           <span>Oof</span>
         </a>
       </div>
-      <div className={`title ${isScrolled ? 'hidden' : ''}`}>PokéData</div>
+      <div className={`title ${isScrolled ? 'hidden' : ''}`}>PokéStats</div>
       <div className={`credits ${isScrolled ? 'hidden' : ''}`}>
         <a href='#'>
           <span>Credits</span>

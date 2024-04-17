@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react'
 import ReactPlayer from 'react-player'
-import '../MusicPlayerComponent/musicPlayer.css'
+import './musicPlayer.css'
 
 const MusicPlayer = () => {
   const playerRef = useRef(null)

@@ -1,4 +1,4 @@
-import '../PokeInfoComponent/pokeInfo.css'
+import './pokeInfo.css'
 import React, { useState, useEffect } from 'react'
 
 function PokeInfo({ pokeInfo, onClose }) {
