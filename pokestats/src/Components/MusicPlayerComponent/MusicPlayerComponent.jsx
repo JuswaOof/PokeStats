@@ -1,10 +1,10 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import ReactPlayer from 'react-player'
 import './musicPlayer.css'
 
 const MusicPlayer = () => {
   const playerRef = useRef(null)
-  const [playing, setPlaying] = useState(false)
+  const [playing, setPlaying] = useState(true)
 
   const handleTogglePlay = () => {
     setPlaying((prevPlaying) => !prevPlaying)
@@ -15,7 +15,9 @@ const MusicPlayer = () => {
     playerRef.current.seekTo(0)
     setPlaying(true)
   }
-
+  useEffect(() => {
+    setPlaying(true) // Auto play when component mounts
+  }, [])
   return (
     <div>
       <ReactPlayer

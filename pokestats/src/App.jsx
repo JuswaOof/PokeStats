@@ -2,13 +2,13 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import Credits from './Pages/CreditPage/Credits.jsx'
-import HomePage from '../src/Pages/HomePage/HomePage.jsx'
+import Home from './Pages/HomePage/Home.jsx'
 
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <HomePage />},
+    element: <Home />},
   {
     path: '/Credits',
     element: <Credits />,

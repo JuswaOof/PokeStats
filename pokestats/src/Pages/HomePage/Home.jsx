@@ -8,7 +8,7 @@ import MusicPlayer from '../../Components/MusicPlayerComponent/MusicPlayerCompon
 import ScrollToTop from '../../Components/ScrollToTopComponent/ScrollToTop.jsx'
 import axios from 'axios'
 import pokeball from '../../assets/pokeball.png'
-import '../HomePage/homePage.css'
+import '../HomePage/home.css'
 
 // const router = createBrowserRouter([
 //   {

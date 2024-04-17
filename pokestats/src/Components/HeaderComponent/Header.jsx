@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import {Link} from 'react-router-dom'
 import '../../App.jsx'
 import './header.css'
 import dribbbleLogo from '../../assets/dribbble.png'
@@ -93,9 +94,9 @@ function Header({ setSearchTerm, setTypeFilters}) {
       </div>
       <div className={`title ${isScrolled ? 'hidden' : ''}`}>PokéStats</div>
       <div className={`credits ${isScrolled ? 'hidden' : ''}`}>
-        <a href='#'>
+        <Link to='Credits'>
           <span>Credits</span>
-        </a>
+        </Link>
       </div>
       <div className={` ${isScrolled ? 'scrolledSearchBar' : 'searchBar'}`}>
         <input
