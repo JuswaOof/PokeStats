@@ -81,7 +81,10 @@ text-align: center;
   background: rgba(255, 255, 255, 0.5);
 }
 
-.creditsButton a{
+a .creditsButton{
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 1.5rem;
   color: black;
   font-family: "Pixelify Sans", sans-serif;

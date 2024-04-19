@@ -19,9 +19,9 @@ function Credits() {
   return (
     <>
       <div className='creditContainer'>
-        <button className='creditsButton'>
-          <a href='/'>Return</a>
-        </button>
+        <a href='/'>
+          <div className='creditsButton'>Return</div>
+        </a>
         <div className='rolling-credits pixelFont'>
           <div className='credit'>
             <h2>Created By</h2>

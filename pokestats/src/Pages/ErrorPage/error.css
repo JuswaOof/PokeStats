@@ -53,8 +53,11 @@
   background: rgba(255, 255, 255, 0.5);
 }
 
-.goHomeButton a{
-  color: rgb(0, 0, 0);
+a .goHomeButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 2rem;
+  color: black;
   font-family: "Pixelify Sans", sans-serif;
 }
