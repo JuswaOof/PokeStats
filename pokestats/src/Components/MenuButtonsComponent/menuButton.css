@@ -1,0 +1,54 @@
+.menuButtonContainer {
+  position: fixed;
+  bottom: 2%;
+  right: 2%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.button {
+  padding: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 50px;
+  width: 50px;
+  margin-bottom: 10px;
+  background: rgba(255, 255, 255, 0.19);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10.4px);
+  -webkit-backdrop-filter: blur(10.4px);
+  outline: 1px outset rgb(255, 204, 0);
+}
+
+.button.scroll-to-top {
+  margin-bottom: 10px;
+}
+
+.scrollToTop img{
+ width: 30px;
+ height: 30px;
+ margin: 0;
+}
+
+.scrollToTop{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button.musicPlayer {
+  margin-top: auto;
+  margin-bottom: 10px;
+}
+.musicPlayer img{
+ width: 30px;
+ height: 30px;
+ margin: 0;
+}
+
+.musicPlayer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

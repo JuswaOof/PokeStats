@@ -8,6 +8,7 @@ import MusicPlayer from '../../Components/MusicPlayerComponent/MusicPlayerCompon
 import ScrollToTop from '../../Components/ScrollToTopComponent/ScrollToTop.jsx'
 import axios from 'axios'
 import pokeball from '../../assets/pokeball.png'
+import MenuButton from '../../Components/MenuButtonsComponent/MenuButton.jsx'
 import '../HomePage/home.css'
 
 // const router = createBrowserRouter([
@@ -149,8 +150,7 @@ function App() {
           {isLoading && <img src={pokeball} alt='loading' />}
         </div>
       </div>
-      <MusicPlayer></MusicPlayer>
-      <ScrollToTop></ScrollToTop>
+     <MenuButton></MenuButton>
     </>
   )
 }

@@ -259,3 +259,50 @@ a {
   display: none;
 }
 /* end of header component */
+
+
+/* mobile view */
+
+@media screen and (max-width: 768px) {
+
+.header {
+  height: 200px;
+  width: 90vw;
+  position: relative;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0 20px 20px 20px;
+  display: grid;
+  grid-template-areas:
+    'title title title'
+    'searchBar searchBar searchBar'
+    'logo credits';
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  z-index: 10;
+  margin-bottom: 100px;
+}
+.scrolledHeader{
+  height: 100px;
+  border-radius: 0 0 50px 50px;
+}
+.filterPokeType{
+  display: none;
+}
+.logo{
+  display: none;
+}
+.credits{
+  display: none;
+}
+.title{
+  font-size: 2rem;
+}
+.searchBar input[type='text'] {
+  font-size: 1rem;
+}
+.scrolledSearchBar input[type='text'] {
+  font-size: 1rem;
+}
+}
