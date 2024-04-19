@@ -21,17 +21,22 @@
 .rolling-credits {
 width: 50vw;
 text-align: center;
-  animation: roll 30s linear infinite; /* Adjust duration and timing function as needed */
+  animation: credits 30s linear infinite; /* Adjust duration and timing function as needed */
     &:hover {
     animation-play-state: paused; /* Pause animation on hover */
   }
 }
 
-@keyframes roll {
+@keyframes credits {
   0% {
     transform: translateY(100%);
   }
+  90%{
+    opacity: 1;
+    transform: translateY(-100%);
+  }
   100% {
+    opacity: 0;
     transform: translateY(-100%);
   }
 }
@@ -53,4 +58,31 @@ text-align: center;
   color: white;
   text-shadow: -0.5px -0.5px 0 #ffcc00, 0.5px -0.5px 0 #ffcc00, -0.5px 0.5px 0 #ffcc00,
   0.5px 0.5px 0 #ffcc00;
+}
+
+.creditsButton{
+  position: fixed;
+  bottom: 2%;
+  right: 2%;
+  border: none;
+  width: 100px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.19);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10.4px);
+  -webkit-backdrop-filter: blur(10.4px);
+  outline: 1px outset rgb(255, 204, 0);
+  border-radius: 20px;
+  align-content: center;
+}
+
+.creditsButton:hover{
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.creditsButton a{
+  font-size: 1.5rem;
+  color: black;
+  font-family: "Pixelify Sans", sans-serif;
 }

@@ -1,0 +1,60 @@
+.errorContainer{
+ position: fixed;
+  display: flex;
+  height: 95vh;
+  width: 95vw;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.19);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 50px;
+  backdrop-filter: blur(10.4px);
+  -webkit-backdrop-filter: blur(10.4px);
+  outline: 1px outset rgb(255, 204, 0);
+  z-index: 1000;
+  justify-content:center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.errorContainer p{
+ font-size: 2rem;
+ margin: 1rem;
+ font-family: "Pixelify Sans", sans-serif;
+}
+
+.errorContainer img{
+ width: 20rem;
+ height: 20rem;
+ margin: 2rem;
+}
+
+.errorContainer span{
+ font-size: 4rem;
+ margin: 1rem;
+ font-family: "Pixelify Sans", sans-serif;
+}
+
+.goHomeButton{
+  width: 200px;
+  height: 70px;
+  background: rgba(255, 255, 255, 0.19);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10.4px);
+  -webkit-backdrop-filter: blur(10.4px);
+  outline: 1px outset rgb(255, 204, 0);
+  border-radius: 20px;
+  align-content: center;
+}
+.goHomeButton:hover{
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.goHomeButton a{
+  color: rgb(0, 0, 0);
+  font-size: 2rem;
+  font-family: "Pixelify Sans", sans-serif;
+}

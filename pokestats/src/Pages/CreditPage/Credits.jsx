@@ -18,10 +18,10 @@ function Credits() {
 
   return (
     <>
-      <button>
-        <a href='/'>go to home</a>
-      </button>
       <div className='creditContainer'>
+        <button className='creditsButton'>
+          <a href='/'>Return</a>
+        </button>
         <div className='rolling-credits pixelFont'>
           <div className='credit'>
             <h2>Created By</h2>
@@ -30,7 +30,6 @@ function Credits() {
                 href='https://juswaoof.github.io/Portfolio-2022/'
                 target='_blank'
               >
-                {' '}
                 Joshua Salcedo
               </a>
             </p>
@@ -39,7 +38,6 @@ function Credits() {
             <h2>Powered By</h2>
             <p>
               <a href='https://pokeapi.co/' target='_blank'>
-                {' '}
                 PokéAPI
               </a>
             </p>
@@ -82,27 +80,24 @@ function Credits() {
                 href='https://toppng.com/free-image/pokeball-PNG-free-PNG-Images_26934'
                 target='_blank'
               >
-                {' '}
                 PokeBall
               </a>
             </p>
             <p>
               <a
-                href='https://www.flaticon.com/free-icons/cat'
+                href='https://www.flaticon.com/free-icon/github-logo_25231?term=github&page=1&position=13&origin=search&related_id=25231'
                 title='cat icons'
                 target='_blank'
               >
-                {' '}
                 Github Logo
               </a>
             </p>
             <p>
               <a
-                href='https://www.flaticon.com/free-icons/dribbble'
+                href='https://www.flaticon.com/free-icon/dribbble_179316?term=dribbble&page=1&position=15&origin=search&related_id=179316'
                 title='dribbble icons'
                 target='_blank'
               >
-                {' '}
                 Dribbble Logo
               </a>
             </p>
@@ -114,7 +109,6 @@ function Credits() {
                 href='https://www.youtube.com/watch?v=2okF5QdKmco'
                 target='_blank'
               >
-                {' '}
                 Pokémon Theme Song (COVER by Alec Chambers)
               </a>
             </p>
@@ -123,11 +117,23 @@ function Credits() {
                 href='https://www.youtube.com/watch?v=YMEblRM4pGc&t=471s'
                 target='_blank'
               >
-                {' '}
                 Chill & Relaxing Pokémon Music Mix
               </a>
             </p>
           </div>
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
           <div className='credit'>
             <h2>Special Thanks</h2>
             <p>
