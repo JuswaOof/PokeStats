@@ -14,7 +14,7 @@ function Error() {
         </p>
         <span className='pixelify textAlignCenter'>Error 404: Page Not Found</span>
         <img src={TeamRocket} alt='image of TeamRocket' />
-        <Link to='PokeStats/'>
+        <Link to='/PokeStats/'>
         <div className='goHomeButton pixelify textAlignCenter'>Go back</div>
         </Link>
           
