@@ -1,3 +1,6 @@
+.pixelify{
+  font-family: "Pixelify Sans", sans-serif;
+}
 .creditContainer{
   position: fixed;
   display: flex;
@@ -13,7 +16,7 @@
   -webkit-backdrop-filter: blur(10.4px);
   outline: 1px outset rgb(255, 204, 0);
   z-index: 1000;
-  overflow: hidden; /* Hide overflowing content */
+  overflow: hidden;
   justify-content:center;
 }
 
@@ -21,9 +24,9 @@
 .rolling-credits {
 width: 50vw;
 text-align: center;
-  animation: credits 30s linear infinite; /* Adjust duration and timing function as needed */
+  animation: credits 30s linear infinite;
     &:hover {
-    animation-play-state: paused; /* Pause animation on hover */
+    animation-play-state: paused;
   }
 }
 
@@ -48,11 +51,9 @@ text-align: center;
 .credit h2 {
   font-size: clamp(2rem, 2.5vw, 3rem); 
   margin-bottom: 5px;
-  font-family: "Pixelify Sans", sans-serif;
 }
 
 .credit p a{
-  font-family: "Pixelify Sans", sans-serif;
   font-size: clamp(1.5rem, 2.5vw, 2.5rem); 
   color: white;
   text-shadow: -0.5px -0.5px 0 #ffcc00, 0.5px -0.5px 0 #ffcc00, -0.5px 0.5px 0 #ffcc00,
@@ -90,5 +91,4 @@ a .creditsButton{
   align-items: center;
   font-size: 1.5rem;
   color: black;
-  font-family: "Pixelify Sans", sans-serif;
 }

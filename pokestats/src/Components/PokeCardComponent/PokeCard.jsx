@@ -17,20 +17,20 @@ function PokeCard({ pokeCard, openPokeInfo }) {
       {pokeCard.map((item) => (
         <div
           onClick={() => openPokeInfo(item)}
-          className='cardContainer'
+          className='cardContainer flex column'
           key={item.id}
         >
           <span className='pokeId'>{item.id}</span>
-          <div className='cardContentContainer'>
+          <div className='cardContentContainer flex column'>
             {!imagesLoaded[item.id] && (
-              <img className='cardImgLoader'
+              <img className='cardImgLoader flex'
                 src={pokeball}
                 alt='Loading...'
                 style={{ width: '50px', height: '50px' }}
               />
             )}
             <img
-              className=''
+              className='flex'
               src={
                 item.sprites.other.dream_world.front_default
                   ? item.sprites.other.dream_world.front_default
@@ -42,7 +42,7 @@ function PokeCard({ pokeCard, openPokeInfo }) {
               onLoad={() => handleImageLoad(item.id)}
               style={{ display: imagesLoaded[item.id] ? 'block' : 'none' }}
             />
-            <div className='cardInfoContainer'>
+            <div className='cardInfoContainer flex column '>
               <span className='cardPokeName'>{item.name}</span>
               <div className='cardTypeContainer'>
                 {item.types.map((pokeType, index) => (

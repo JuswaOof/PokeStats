@@ -56,15 +56,15 @@ function MenuButton() {
   return (
     <>
       {/* start of scroll to top */}
-      <div className='menuButtonContainer'>
+      <div className='menuButtonContainer flex alignCenter'>
         {isScrolled && (
-          <div className='button scrollToTop' onClick={scrollToTop}>
+          <div className='button scrollToTop flex justifyCenter alignCenter' onClick={scrollToTop}>
             <img src={arrowUp} alt='arrow-up img' />
           </div>
         )}
 
         <div
-          className={`button musicPlayer ${playing ? 'active' : ''}`}
+          className={`button musicPlayer flex justifyCenter alignCenter ${playing ? 'active' : ''}`}
           onClick={handleTogglePlay}
         >
           <img src={playing ? pauseButton : playButton} alt='play/pause button img' />

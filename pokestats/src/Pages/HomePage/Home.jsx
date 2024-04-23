@@ -1,22 +1,12 @@
 import React, { useState, useEffect } from 'react'
-// import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import PokeCard from '../../Components/PokeCardComponent/PokeCard.jsx'
 import Header from '../../Components/HeaderComponent/Header.jsx'
 import PokeInfo from '../../Components/PokeInfoComponent/PokeInfo.jsx'
-// import Credits from './Pages/CreditPage/Credits.jsx'
-import MusicPlayer from '../../Components/MusicPlayerComponent/MusicPlayerComponent.jsx'
-import ScrollToTop from '../../Components/ScrollToTopComponent/ScrollToTop.jsx'
 import axios from 'axios'
 import pokeball from '../../assets/pokeball.png'
 import MenuButton from '../../Components/MenuButtonsComponent/MenuButton.jsx'
 import '../HomePage/home.css'
 
-// const router = createBrowserRouter([
-//   {
-//     path: '/Credits',
-//     element: <Credits/>,
-//   },
-// ])
 
 function App() {
   const limit = 50
