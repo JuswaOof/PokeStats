@@ -86,24 +86,30 @@ useEffect(() => {
           <span className='tekoFont whiteText textOutline spanPad'>
             SP Attack: {currentStats[3]}
           </span>
-          <div
-            className='bar spAtkBar'
-            style={{ width: `${barWidths[3]/1.5}%` }}
-          ></div>
+          <div className='barContainerRight'>
+            <div
+              className='bar spAtkBar'
+              style={{ width: `${barWidths[3] / 1.5}%` }}
+            ></div>
+          </div>
           <span className='tekoFont whiteText textOutline spanPad'>
             SP Defense: {currentStats[4]}
           </span>
-          <div
-            className='bar spDefBar'
-            style={{ width: `${barWidths[4]/1.5}%` }}
-          ></div>
+          <div className='barContainerRight'>
+            <div
+              className='bar spDefBar'
+              style={{ width: `${barWidths[4] / 1.5}%` }}
+            ></div>
+          </div>
           <span className='tekoFont whiteText textOutline spanPad'>
             Speed: {currentStats[5]}
           </span>
-          <div
-            className='bar spdBar'
-            style={{ width: `${barWidths[5]}%` }}
-          ></div>
+          <div className='barContainerRight'>
+            <div
+              className='bar spdBar'
+              style={{ width: `${barWidths[5]}%` }}
+            ></div>
+          </div>
           <span className='tekoFont whiteText textOutline spanPad'>
             Weight: {pokeInfo.weight / 10} Kg
           </span>

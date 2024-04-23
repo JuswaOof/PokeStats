@@ -15,6 +15,12 @@
   height: 20px; /* Set the height of the bar */
   margin-bottom: 5px; /* Add some spacing between bars */
 }
+.barContainerRight{
+  display: flex;
+  align-items: center;
+  height: 20px; /* Set the height of the bar */
+  margin-bottom: 5px; /* Add some spacing between bars */
+}
 .bar {
   height: 30px;
   align-items: right;
@@ -90,6 +96,7 @@
 }
 
 .pokeInfo {
+  height: 100%;
   display: grid;
   grid-template-areas: 'leftInfo midInfo rightInfo';
   grid-template-columns: 1fr 1fr 1fr;
@@ -141,4 +148,68 @@
   50% {
     transform: translateY(-10px);
   }
+}
+
+@media screen and (max-width: 768px) {
+
+  .pokeInfo {
+  height: 100%;
+  display: grid;
+  grid-template-areas: 'midInfo midInfo'
+                        'leftInfo rightInfo';
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  align-items: center;
+  padding: 50px;
+}
+
+.midInfo img {
+height: 200px;
+width: 200px;
+animation: float 3s ease-in-out infinite;
+padding: 0;
+}
+.midInfo h2{
+  margin-top: 20px;
+  font-size: 3rem;
+}
+.rightInfo {
+  grid-area: rightInfo;
+  text-align: left;
+  font-size: 1.5rem;
+  -moz-transform: none;
+  -webkit-transform: none;
+  -o-transform: none;
+  -ms-transform: none;
+  transform: none;
+  display: flex;
+  align-items: right;
+}
+.leftInfo{
+  grid-area: leftInfo;
+  text-align: left;
+  font-size: 1.5rem;
+  -moz-transform: none;
+  -webkit-transform: none;
+  -o-transform: none;
+  -ms-transform: none;
+  transform: none;
+  display: flex;
+  align-items: left;
+}
+.bar {
+  height: 1rem;
+  border-radius: 5px;
+  transition: 0.8s ease-in-out; /* Add a transition effect for width changes */
+}
+.spanPad {
+  padding: 0px;
+}
+.barContainerLeft{
+  justify-content: flex-start;
+}
+.barContainerRight{
+  justify-content: left;
+}
+
 }
