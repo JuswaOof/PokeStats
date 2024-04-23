@@ -8,10 +8,10 @@ import Error from '../src/Pages/ErrorPage/Error.jsx'
 
 const router = createBrowserRouter([
   {
-    path: '/PokeStats/',
+    path: 'PokeStats/',
     element: <Home />},
   {
-    path: '/PokeStats/Credits',
+    path: 'PokeStats/Credits',
     element: <Credits />,
   },
   {
