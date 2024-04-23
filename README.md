@@ -24,7 +24,7 @@ Follow these instructions to get the Pokestats React App up and running on your 
 git clone https://github.com/your-username/pokestats-react-app.git
 
 2. Navigate to the project directory:
-`cd pokestats-react-app`
+```cd pokestats-react-app```
 
 3. Install dependencies:
 `npm install`
