@@ -3,6 +3,7 @@ import '../ErrorPage/error.css'
 import TeamRocket from '../../assets/teamRocket.png'
 
 function Error() {
+  console.log('test')
   return (
     <>
       <div className='errorContainer'>
