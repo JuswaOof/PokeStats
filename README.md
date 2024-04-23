@@ -13,9 +13,9 @@ Welcome to Pokestats! This web application allows you to delve into the captivat
 
 ## Acknowledgements 🙏
 
-- Pokémon data obtained from the [PokéAPI](https://pokeapi.co/){:target="_blank"}.
+- Pokémon data obtained from the <a href="https://pokeapi.co/" target="_blank">PokéAPI</a>.
 
 
 ## About the Developer 👨‍💻
 
-This project was created with ❤️ by [Juswa Oof](https://juswaoof.github.io/Portfolio-2022/){:target="_blank"}. Feel free to reach out with any questions or suggestions!
+This project was created with ❤️ by <a href="https://juswaoof.github.io/Portfolio-2022/" target="_blank">Juswa Oof</a>. Feel free to reach out with any questions or suggestions!
