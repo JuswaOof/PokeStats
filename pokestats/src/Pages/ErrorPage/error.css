@@ -1,6 +1,9 @@
 .pixelify{
   font-family: "Pixelify Sans", sans-serif;
 }
+.textAlignCenter{
+  text-align: center;
+}
 .errorContainer {
   position: fixed;
   display: flex;

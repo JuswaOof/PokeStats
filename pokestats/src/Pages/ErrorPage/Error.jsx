@@ -7,14 +7,14 @@ function Error() {
   return (
     <>
       <div className='errorContainer'>
-        <p className='pixelify'>
+        <p className='pixelify textAlignCenter'>
           Oh no! It looks like Team Rocket blasted this page off into
           cyberspace!
         </p>
-        <span className='pixelify'>Error 404: Page Not Found</span>
+        <span className='pixelify textAlignCenter'>Error 404: Page Not Found</span>
         <img src={TeamRocket} alt='image of TeamRocket' />
         <a href='/'>
-          <div className='goHomeButton pixelify'>Go back</div>
+          <div className='goHomeButton pixelify textAlignCenter'>Go back</div>
         </a>
       </div>
     </>
