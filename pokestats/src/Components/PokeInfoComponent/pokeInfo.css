@@ -107,7 +107,7 @@
 .leftInfo {
   grid-area: leftInfo;
   text-align: right;
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 2.5vw, 2rem); 
   -moz-transform: scale(1.1) skew(3deg, -25deg);
   -webkit-transform: scale(1.1) skew(3deg, -25deg);
   -o-transform: scale(1.1) skew(3deg, -25deg);
@@ -132,7 +132,7 @@
 .rightInfo {
   grid-area: rightInfo;
   text-align: left;
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 2.5vw, 2rem); 
   -moz-transform: scale(1.1) skew(-3deg, 25deg);
   -webkit-transform: scale(1.1) skew(-3deg, 25deg);
   -o-transform: scale(1.1) skew(-3deg, 25deg);
@@ -160,6 +160,7 @@
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   align-items: center;
+  place-items: center;
   padding: 50px;
 }
 
@@ -176,7 +177,7 @@ padding: 0;
 .rightInfo {
   grid-area: rightInfo;
   text-align: left;
-  font-size: 1.5rem;
+  /* font-size: 1.5rem; */
   -moz-transform: none;
   -webkit-transform: none;
   -o-transform: none;
@@ -188,7 +189,7 @@ padding: 0;
 .leftInfo{
   grid-area: leftInfo;
   text-align: left;
-  font-size: 1.5rem;
+  /* font-size: 1.5rem; */
   -moz-transform: none;
   -webkit-transform: none;
   -o-transform: none;
@@ -198,7 +199,7 @@ padding: 0;
   align-items: left;
 }
 .bar {
-  height: 1rem;
+  height: 1.5rem;
   border-radius: 5px;
   transition: 0.8s ease-in-out; /* Add a transition effect for width changes */
 }

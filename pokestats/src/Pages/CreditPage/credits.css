@@ -46,18 +46,21 @@ text-align: center;
 }
 
 .credit h2 {
-  font-size: 3rem;
+  font-size: clamp(2rem, 2.5vw, 3rem); 
   margin-bottom: 5px;
   font-family: "Pixelify Sans", sans-serif;
 }
 
 .credit p a{
   font-family: "Pixelify Sans", sans-serif;
-  padding: 20px;
-  font-size: 2.5rem;
+  font-size: clamp(1.5rem, 2.5vw, 2.5rem); 
   color: white;
   text-shadow: -0.5px -0.5px 0 #ffcc00, 0.5px -0.5px 0 #ffcc00, -0.5px 0.5px 0 #ffcc00,
   0.5px 0.5px 0 #ffcc00;
+  text-align: center;
+}
+.credit p{
+  text-align: center;
 }
 
 .creditsButton{

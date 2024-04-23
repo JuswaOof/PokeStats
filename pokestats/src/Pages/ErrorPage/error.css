@@ -1,5 +1,5 @@
-.errorContainer{
- position: fixed;
+.errorContainer {
+  position: fixed;
   display: flex;
   height: 95vh;
   width: 95vw;
@@ -13,31 +13,31 @@
   -webkit-backdrop-filter: blur(10.4px);
   outline: 1px outset rgb(255, 204, 0);
   z-index: 1000;
-  justify-content:center;
+  justify-content: center;
   flex-direction: column;
   align-items: center;
   text-align: center;
 }
 
-.errorContainer p{
- font-size: 2rem;
- margin: 1rem;
- font-family: "Pixelify Sans", sans-serif;
+.errorContainer p {
+  font-size: clamp(1rem, 2.5vw, 2rem);
+  margin: 1rem;
+  font-family: "Pixelify Sans", sans-serif;
 }
 
-.errorContainer img{
- width: 20rem;
- height: 20rem;
- margin: 2rem;
+.errorContainer img {
+  width: 20rem;
+  height: 20rem;
+  margin: 2rem;
 }
 
-.errorContainer span{
- font-size: 4rem;
- margin: 1rem;
- font-family: "Pixelify Sans", sans-serif;
+.errorContainer span {
+  font-size: clamp(2rem, 5.5vw, 4rem);
+  margin: 1rem;
+  font-family: "Pixelify Sans", sans-serif;
 }
 
-.goHomeButton{
+.goHomeButton {
   width: 200px;
   height: 70px;
   background: rgba(255, 255, 255, 0.19);
@@ -48,7 +48,7 @@
   border-radius: 20px;
   align-content: center;
 }
-.goHomeButton:hover{
+.goHomeButton:hover {
   cursor: pointer;
   background: rgba(255, 255, 255, 0.5);
 }
@@ -57,7 +57,14 @@ a .goHomeButton {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
   color: black;
   font-family: "Pixelify Sans", sans-serif;
+}
+
+@media screen and (max-width: 768px) {
+  .goHomeButton {
+    width: 150px;
+    height: 50px;
+  }
 }
