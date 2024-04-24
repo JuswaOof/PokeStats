@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react'
+import { Link } from 'react-router-dom';
 import ReactPlayer from 'react-player'
 import '../CreditPage/credits.css'
 
@@ -19,9 +20,9 @@ function Credits() {
   return (
     <>
       <div className='creditContainer'>
-        <a href='/'>
-          <div className='creditsButton pixelify'>Return</div>
-        </a>
+      <Link to="/PokeStats/">
+      <div className='creditsButton pixelify'>Return</div>
+      </Link>
         <div className='rolling-credits pixelFont'>
           <div className='credit'>
             <h2 className='pixelify'>Created By</h2>
