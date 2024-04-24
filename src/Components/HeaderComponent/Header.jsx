@@ -4,6 +4,7 @@ import '../../App.jsx'
 import './header.css'
 import dribbbleLogo from '../../assets/dribbble.png'
 import githubLogo from '../../assets/github.png'
+import pokeStatsLogo from '../../assets/PokestatsLogo.png'
 
 function Header({ setSearchTerm, setTypeFilters}) {
   const [searchValue, setSearchValue] = useState('')
@@ -92,7 +93,7 @@ function Header({ setSearchTerm, setTypeFilters}) {
           <span>Oof</span>
         </a>
       </div>
-      <div className={`title ${isScrolled ? 'hidden' : ''}`}>PokéStats</div>
+      <div className={`title ${isScrolled ? 'hidden' : ''}`}><img src={pokeStatsLogo} alt="PokeStats Logo" /></div>
       <div className={`credits ${isScrolled ? 'hidden' : ''}`}>
         <Link to='Credits'>
           <span>Credits</span>

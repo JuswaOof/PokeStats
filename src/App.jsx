@@ -1,10 +1,28 @@
 
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom'
 
 import Credits from './Pages/CreditPage/Credits.jsx'
 import Home from './Pages/HomePage/Home.jsx'
 import Error from '../src/Pages/ErrorPage/Error.jsx'
 
+
+
+// const router = createBrowserRouter([
+//   {
+//     path: "/PokeStats/",
+//     element: <Home/>,
+//     children: [
+//       {
+//         path: "/PokeStats/",
+//         element: <Home/>,
+//       },
+//       {
+//         path: "/PokeStats/Credits",
+//         element: <Credits/>,
+//       },
+//     ]
+//   }
+// ])
 
 const router = createBrowserRouter([
   {
@@ -15,7 +33,7 @@ const router = createBrowserRouter([
     element: <Credits />,
   },
   {
-    path: '/PokeStats/*',
+    path: '*',
     element: <Error/>,
   },
 ])
@@ -25,6 +43,7 @@ function App() {
   return (
     <>
       <RouterProvider router={router} />
+      <Outlet/>
     </>
   )
 }

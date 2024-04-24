@@ -1,11 +1,4 @@
 /* start of header component */
-@font-face {
-  font-family: pokemonSolid;
-  src: url(/dist/Pokemon\ Solid.ttf);
-}
-.pokemonSolid {
-  font-family: pokemonSolid;
-}
 a {
   text-decoration: none;
 }
@@ -90,14 +83,11 @@ a {
 
 
 .title {
-  /* height: 4rem; */
-  color: #ffcc00;
-  text-shadow: -1px -1px 0 #AA8800, 1px -1px 0 #AA8800, -1px 1px 0 #AA8800,
-    1px 1px 0 #AA8800;
   grid-area: title;
-  font-size: 3.5rem;
   text-align: center;
-  font-family: 'pokemonSolid';
+}
+.title img{
+  width: 300px;
 }
 
 .credits {
