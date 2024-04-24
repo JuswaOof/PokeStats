@@ -1,7 +1,7 @@
 /* start of header component */
 @font-face {
   font-family: pokemonSolid;
-  src: url(/Pokemon\ Solid.ttf);
+  src: url(/dist/Pokemon\ Solid.ttf);
 }
 .pokemonSolid {
   font-family: pokemonSolid;
