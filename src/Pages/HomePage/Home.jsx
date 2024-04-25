@@ -16,10 +16,11 @@ function App() {
   const [pokeData, setPokeData] = useState([])
   const [pokeDataAll, setPokeDataAll] = useState([])
   const [isLoading, setIsLoading] = useState(false)
-  const [isWebsiteLoaded, setIsWebsiteLoaded] = useState(false)
+  // const [isWebsiteLoaded, setIsWebsiteLoaded] = useState(false)
   const [searchTerm, setSearchTerm] = useState('')
   const [pokeInfo, setPokeInfo] = useState(null)
   const [typeFilters, setTypeFilters] = useState([])
+  
 
   const getPokemon = (results) => {
     let promises = results.map((item) => axios.get(item.url))
@@ -39,6 +40,7 @@ function App() {
 
   const loadMore = () => {
     if (!isLoading && url) {
+      console.log('loadMore rendered')
       setIsLoading(true)
       setTimeout(() => {
         axios.get(url).then((res) => {
@@ -72,24 +74,25 @@ function App() {
     fetchAllPokemon()
   }, [])
 
-  useEffect(() => {
-    window.addEventListener('load', () => {
-      setIsWebsiteLoaded(true)
-    })
-
-    return () => {
-      window.removeEventListener('load', () => {
-        setIsWebsiteLoaded(true)
-      })
-    }
-  }, [])
+  
+  // useEffect(() => {
+  //   const handleLoad = () => {
+  //     setIsWebsiteLoaded(true);
+  //   };
+  
+  //   window.addEventListener('load', handleLoad);
+  
+  //   return () => {
+  //     window.removeEventListener('load', handleLoad);
+  //   };
+  // }, []);
 
   useEffect(() => {
     const handleScroll = () => {
       if (
         window.innerHeight + document.documentElement.scrollTop ===
-          document.documentElement.offsetHeight &&
-        isWebsiteLoaded
+          document.documentElement.offsetHeight 
+          // && isWebsiteLoaded
       ) {
         loadMore()
       }
@@ -125,6 +128,7 @@ function App() {
   //   console.log('filteredPokeData:', filteredPokeData)
   // }, [filteredPokeData])
 
+
   return (
     <>
       {pokeInfo && <PokeInfo pokeInfo={pokeInfo} onClose={closePokeInfo} />}
@@ -140,7 +144,7 @@ function App() {
           {isLoading && <img src={pokeball} alt='loading' />}
         </div>
       </div>
-     <MenuButton></MenuButton>
+    <MenuButton></MenuButton>
     </>
   )
 }

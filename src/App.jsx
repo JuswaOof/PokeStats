@@ -1,9 +1,7 @@
-
 import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom'
-
 import Credits from './Pages/CreditPage/Credits.jsx'
 import Home from './Pages/HomePage/Home.jsx'
-import Error from '../src/Pages/ErrorPage/Error.jsx'
+import Error from './Pages/ErrorPage/Error.jsx'
 
 
 

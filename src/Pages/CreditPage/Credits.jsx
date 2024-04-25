@@ -46,7 +46,7 @@ function Credits() {
           <div className='credit'>
             <h2 className='pixelify'>Copyright</h2>
             <p>
-              <a className='pixelify' href='' target='_blank'>
+              <a className='pixelify' href='https://www.pokemon.com/us' target='_blank'>
                 Pokémon Company
               </a>
             </p>
