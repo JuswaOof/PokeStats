@@ -106,7 +106,7 @@ function App() {
     const hasAllTypes =
       typeFilters.length === 0 ||
       typeFilters.every((filter) =>
-        pokemon.types.some((type) => type.type.name === filter)
+        pokemon.type.some((type) => type.type.name === filter)
       )
     const matchesSearch = searchTerm
       ? pokemon.name.toLowerCase().includes(searchTerm)
